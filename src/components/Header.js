@@ -7,7 +7,7 @@ class Header extends React.Component {
   render () {
     return (
       <header>
-        <AppBar position='relative'>
+        <AppBar position='relative' color='primary'>
           <ToolBar>
             <Typography variant='h4' color='inherit'>
               estante

@@ -44,7 +44,7 @@ class BookThumbnail extends React.Component {
 
   componentDidMount () {
     let lendingStatusBadge = {color: '', content: ''}
-    lendingStatusBadge.color = this.props.bookData.isLending ? 'error' : 'primary'
+    lendingStatusBadge.color = this.props.bookData.isLending ? 'error' : 'secondary'
     lendingStatusBadge.content = this.props.bookData.isLending ? '貸' : '棚'
     this.setState({lendingStatusBadge})
   }
@@ -92,7 +92,7 @@ class BookThumbnail extends React.Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Link href={this.props.bookData.shopURL} target='_blank' rel='noopener'>Amazon link</Link>
+            <Link color='secondary' href={this.props.bookData.shopURL} target='_blank' rel='noopener'>Amazon link</Link>
           </DialogActions>
         </Dialog>
       </div>
