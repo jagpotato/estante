@@ -27,5 +27,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "axios": "^0.18.0",
+    "firebase": "^5.10.0"
   }
 }
