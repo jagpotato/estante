@@ -1,5 +1,5 @@
 import React from 'react'
-import {firestore} from '../firebase'
+// import {firestore} from '../firebase'
 
 import BookThumbnail from './BookThumbnail'
 
@@ -33,6 +33,8 @@ class BookList extends React.Component {
     //   bookList: [{name: '', isLending: false, shopURL: '', thumbnailURL: ''}]
     // }
     // this.fetchBookDataFromDB()
+
+    this.firestore = props.firebase.firestore
 
     // 開発用
     this.state = {
@@ -285,7 +287,7 @@ class BookList extends React.Component {
     //     this.setState({bookList})
     //   })
     //- onSnapshot ver
-    firestore.collection('books').onSnapshot((querySnapshot) => {
+    this.firestore.collection('books').onSnapshot((querySnapshot) => {
       const bookList = querySnapshot.docs.map(doc => doc.data())
       this.setState({bookList})
     })
