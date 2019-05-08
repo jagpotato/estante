@@ -26,6 +26,13 @@ class App extends React.Component {
     super(props)
 
     this.firebase = new Firebase()
+    this.state = {
+      isSignIn: false
+    }
+  }
+
+  updateSignInState (isSignIn) {
+    this.setState({isSignIn})
   }
 
   render () {
@@ -33,8 +40,20 @@ class App extends React.Component {
       <div className='App'>
         <Grid container spacing={32} direction='column' style={styles.gridContainer}>
           <Grid item style={styles.gridItem}>
-            <Header firebase={this.firebase} />
+            <Header firebase={this.firebase} isSignIn={this.state.isSignIn} updateSignInState={(isSignIn) => this.updateSignInState(isSignIn)} />
           </Grid>
+          {/* 要ログイン */}
+          {/* {this.state.isSignIn &&
+            <Grid item style={styles.gridItem}>
+              <SearchField />
+            </Grid>
+          }
+          {this.state.isSignIn &&
+            <Grid item style={styles.gridItem}>
+              <BookList firebase={this.firebase} />
+            </Grid>
+          } */}
+          {/* ログイン不要 */}
           <Grid item style={styles.gridItem}>
             <SearchField />
           </Grid>

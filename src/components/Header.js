@@ -22,22 +22,17 @@ class Header extends React.Component {
 
     this.state = {
       thumbnailURL: '',
-      isSignIn: false,
       anchorEl: null
     }
   }
 
   updateAuthState (thumbnailURL, isSignIn) {
     this.updateThumbnailURL(thumbnailURL)
-    this.updateSignInState(isSignIn)
+    this.props.updateSignInState(isSignIn)
   }
 
   updateThumbnailURL (thumbnailURL) {
     this.setState({thumbnailURL})
-  }
-
-  updateSignInState (isSignIn) {
-    this.setState({isSignIn})
   }
 
   handleClickUserIcon (event) {
@@ -67,7 +62,7 @@ class Header extends React.Component {
             <Typography variant='h4' color='inherit' style={styles.grow}>
               estante
             </Typography>
-            {this.state.isSignIn
+            {this.props.isSignIn
               ?
               <IconButton
                 aria-owns={this.state.anchorEl ? 'user-menu' : undefined}
