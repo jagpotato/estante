@@ -43,7 +43,7 @@ class App extends React.Component {
             <Header firebase={this.firebase} isSignIn={this.state.isSignIn} updateSignInState={(isSignIn) => this.updateSignInState(isSignIn)} />
           </Grid>
           {/* 要ログイン */}
-          {/* {this.state.isSignIn &&
+          {this.state.isSignIn &&
             <Grid item style={styles.gridItem}>
               <SearchField />
             </Grid>
@@ -52,14 +52,14 @@ class App extends React.Component {
             <Grid item style={styles.gridItem}>
               <BookList firebase={this.firebase} />
             </Grid>
-          } */}
+          }
           {/* ログイン不要 */}
-          <Grid item style={styles.gridItem}>
+          {/* <Grid item style={styles.gridItem}>
             <SearchField />
           </Grid>
           <Grid item style={styles.gridItem}>
             <BookList firebase={this.firebase} />
-          </Grid>
+          </Grid> */}
         </Grid>
         {/* <BookRegister /> */}
       </div>
