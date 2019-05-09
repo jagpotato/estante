@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import Firebase from '../firebase'
 
 import Header from './Header'
 import SearchField from './SearchField'
@@ -21,22 +22,43 @@ const styles = {
 }
 
 class App extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
+  constructor (props) {
+    super(props)
+
+    this.firebase = new Firebase()
+    this.state = {
+      isSignIn: false
+    }
+  }
+
+  updateSignInState (isSignIn) {
+    this.setState({isSignIn})
+  }
 
   render () {
     return (
       <div className='App'>
         <Grid container spacing={32} direction='column' style={styles.gridContainer}>
           <Grid item style={styles.gridItem}>
-            <Header />
+            <Header firebase={this.firebase} isSignIn={this.state.isSignIn} updateSignInState={(isSignIn) => this.updateSignInState(isSignIn)} />
           </Grid>
+          {/* 要ログイン */}
+          {/* {this.state.isSignIn &&
+            <Grid item style={styles.gridItem}>
+              <SearchField />
+            </Grid>
+          }
+          {this.state.isSignIn &&
+            <Grid item style={styles.gridItem}>
+              <BookList firebase={this.firebase} />
+            </Grid>
+          } */}
+          {/* ログイン不要 */}
           <Grid item style={styles.gridItem}>
             <SearchField />
           </Grid>
           <Grid item style={styles.gridItem}>
-            <BookList />
+            <BookList firebase={this.firebase} />
           </Grid>
         </Grid>
         {/* <BookRegister /> */}
