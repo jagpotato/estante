@@ -62,7 +62,8 @@ class Header extends React.Component {
             <Typography variant='h4' color='inherit' style={styles.grow}>
               estante
             </Typography>
-            {this.props.isSignIn
+            {/* ログイン周り */}
+            {/* {this.props.isSignIn
               ?
               <IconButton
                 aria-owns={this.state.anchorEl ? 'user-menu' : undefined}
@@ -83,7 +84,7 @@ class Header extends React.Component {
               <MenuItem onClick={() => this.signOut()}>
                 LOGOUT
               </MenuItem>
-            </Menu>
+            </Menu> */}
           </ToolBar>
         </AppBar>
       </header>
