@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 import Firebase from '../firebase'
+// 開発用
+import {bookList} from './dummyBookData'
 
 import Header from './Header'
 import SearchField from './SearchField'
@@ -27,8 +29,19 @@ class App extends React.Component {
 
     this.firebase = new Firebase()
     this.state = {
-      isSignIn: false
+      isSignIn: false,
+      displayBookList: []
     }
+  }
+
+  componentDidMount () {
+    this.setState({
+      displayBookList: bookList
+    })
+  }
+
+  updateDisplayBookList (displayBookList) {
+    this.setState({displayBookList})
   }
 
   updateSignInState (isSignIn) {
@@ -55,10 +68,10 @@ class App extends React.Component {
           } */}
           {/* ログイン不要 */}
           <Grid item style={styles.gridItem}>
-            <SearchField />
+            <SearchField bookList={bookList} updateDisplayBookList={(displayBookList) => this.updateDisplayBookList(displayBookList)} />
           </Grid>
           <Grid item style={styles.gridItem}>
-            <BookList firebase={this.firebase} />
+            <BookList firebase={this.firebase} displayBookList={this.state.displayBookList} />
           </Grid>
         </Grid>
         {/* <BookRegister /> */}

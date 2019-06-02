@@ -66,7 +66,14 @@ class BookList extends React.Component {
     return (
       <div style={styles.boxList}>
         <Grid container spacing={40} style={styles.gridContainer}>
-          {this.state.bookList.map((book, i) => {
+          {/* {this.state.bookList.map((book, i) => {
+            return (
+              <Grid item key={i} xs={6} sm={4} md={3} lg={2} style={styles.gridItem}>
+                <BookThumbnail bookData={book} />
+              </Grid>
+            )
+          })} */}
+          {this.props.displayBookList.map((book, i) => {
             return (
               <Grid item key={i} xs={6} sm={4} md={3} lg={2} style={styles.gridItem}>
                 <BookThumbnail bookData={book} />
